@@ -12,16 +12,15 @@
     <div id="app">
       <div class="nav-bar"></div>
 
-      <div class="cart">Cart({{ cart }})</div>
-      <product-display :premium="premium"></product-display>
+      <div class="cart">Cart({{ cart.length }})</div>
+      <!-- the @add-to-cart listens to add-to-cart event to be emitted -->
+     <!--  the @remove-from-cart listens to remove-from event to be emitted -->
+      <product-display :premium="premium" @add-to-cart="updateCart" @remove-from-cart="removeItem"></product-display>
     </div>
-
     <!-- Import App -->
     <script src="./main.js"></script>
-
     <!-- Import Components -->
     <script src="./components/ProductDisplay.js"></script>
-
     <!-- Mount App -->
     <script>
       const mountedApp = app.mount('#app')
